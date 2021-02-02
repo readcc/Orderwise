@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OrderWise.Views.OrdersModalPage"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:OrderWise.ViewModels"  
+             xmlns:model="clr-namespace:OrderWise.Models">
+
+    <StackLayout Margin="20,35,20,20">
+        <Entry x:Name="customerIdEntry"
+               Placeholder="Enter Product Code" />
+        <DatePicker x:Name="orderDatePicker" />
+        <Entry x:Name="customerReferenceEntry"
+               Placeholder="Enter Customer Reference" />
+        <Button Text="Add Order"
+                Clicked="OnAddOrderButtonClicked" />
+        <Button Text="Cancel"
+                Clicked="OnCancelModalButtonClicked" />
+    </StackLayout>
+    
+</ContentPage>

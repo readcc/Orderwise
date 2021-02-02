@@ -13,27 +13,27 @@ using Xamarin.Forms.Xaml;
 
 namespace OrderWise.Views
 {
-    public partial class ProductsPage : ContentPage
+    public partial class OrdersPage : ContentPage
     {
-        ProductsViewModel _viewModel;
+        OrdersViewModel _viewModel;
 
-        public ProductsPage()
+        public OrdersPage()
         {
             InitializeComponent();
 
-            BindingContext = _viewModel = new ProductsViewModel();
+            BindingContext = _viewModel = new OrdersViewModel();
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            collectionView.ItemsSource = await App.Database.GetProductAsync();
+            collectionView.ItemsSource = await App.Database.GetOrdersAsync();
         }
 
-        void OnAddProductButtonClicked(object sender, EventArgs e)
+        void OnAddOrderButtonClicked(object sender, EventArgs e)
         {
 
-            var modalPage = new ProductsModalPage();
+            var modalPage = new OrdersModalPage();
             
             Navigation.PushModalAsync(modalPage);
             
@@ -41,8 +41,8 @@ namespace OrderWise.Views
 
         void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var current = (e.CurrentSelection.FirstOrDefault() as Product)?.ProductId;
-            var modalPage = new ProductsModalPage();
+            var current = (e.CurrentSelection.FirstOrDefault() as Order)?.OrderId;
+            var modalPage = new OrdersModalPage();
 
             Navigation.PushModalAsync(modalPage);
         }

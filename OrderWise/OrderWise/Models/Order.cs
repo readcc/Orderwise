@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OrderWise.Models
 {
-    class Order
+    public class Order
     {
         [PrimaryKey, AutoIncrement]
         public int OrderId { get; set; }

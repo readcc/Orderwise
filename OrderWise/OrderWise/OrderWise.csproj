@@ -21,6 +21,9 @@
     <Compile Update="Views\CategoriesModalPage.xaml.cs">
       <DependentUpon>CategoriesModalPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\OrdersModalPage.xaml.cs">
+      <DependentUpon>OrdersModalPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\ProductsModalPage.xaml.cs">
       <DependentUpon>ProductsModalPage.xaml</DependentUpon>
     </Compile>
@@ -29,6 +32,9 @@
     </Compile>
     <Compile Update="Views\CategoriesPage.xaml.cs">
       <DependentUpon>CategoriesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\OrdersPage.xaml.cs">
+      <DependentUpon>OrdersPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\ProductsPage.xaml.cs">
       <DependentUpon>ProductsPage.xaml</DependentUpon>

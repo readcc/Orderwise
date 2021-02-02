@@ -16,7 +16,11 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="{Binding ProductName}"
+                        <Label Text="{Binding OrderId}"
+                               FontSize="Medium" />
+                        <Label Text="{Binding CustomerId}"
+                               FontSize="Medium" />
+                        <Label Text="{Binding OrderTotal}"
                                FontSize="Medium" />
                     
                     </StackLayout>

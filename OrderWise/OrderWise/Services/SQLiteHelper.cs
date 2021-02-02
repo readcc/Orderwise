@@ -17,7 +17,7 @@ namespace OrderWise.Services
             _database.CreateTableAsync<Order>().Wait();
             _database.CreateTableAsync<OrderItem>().Wait();
             _database.CreateTableAsync<Product>().Wait();
-            string path = _database.DatabasePath;
+            
         }
 
         public Task<List<Customer>> GetCustomerAsync()
@@ -48,6 +48,16 @@ namespace OrderWise.Services
         public Task<int> SaveCategoryAsync(CustomerCategory category)
         {
             return _database.InsertAsync(category);
+        }
+
+        public Task<List<Order>> GetOrdersAsync()
+        {
+            return _database.Table<Order>().ToListAsync();
+        }
+
+        public Task<int> SaveOrdersAsync(Order order)
+        {
+            return _database.InsertAsync(order);
         }
     }
 

@@ -10,7 +10,7 @@ namespace OrderWise.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        //public IDataStore<Customer> DataStore => DependencyService.Get<IDataStore<Customer>>();
+        
 
         bool isBusy = false;
         public bool IsBusy
