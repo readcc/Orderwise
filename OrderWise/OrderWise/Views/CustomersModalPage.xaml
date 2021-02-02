@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OrderWise.Views.CustomersModalPage"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:OrderWise.ViewModels"  
+             xmlns:model="clr-namespace:OrderWise.Models">
+
+    <StackLayout Margin="20,35,20,20">
+        <Entry x:Name="customerCodeEntry"
+               Placeholder="Enter Customer Code" />
+        <Entry x:Name="customerNameEntry"
+               Placeholder="Enter Customer Name" />
+        <Entry x:Name="telephoneEntry"
+               Placeholder="Enter Telephone" />
+        <Entry x:Name="cellphoneEntry"
+               Placeholder="Enter Cellphone" />
+        <Entry x:Name="address1Entry"
+               Placeholder="Enter Address 1" />
+        <Entry x:Name="address2Entry"
+               Placeholder="Enter Address 2" />
+        <Entry x:Name="address3Entry"
+               Placeholder="Enter Address 3" />
+        <Entry x:Name="address4Entry"
+               Placeholder="Enter Address 4" />
+        <Entry x:Name="postalCodeEntry"
+               Placeholder="Enter Postal Code" />
+        <Picker x:Name="customerCategoryPicker" Title="Select Category" ItemDisplayBinding="{Binding Description}" SelectedItem="{Binding CustomerCategoryId}"/>
+
+
+        <Button Text="Add Customer" Clicked="OnAddCustomerButtonClicked"/>
+        <Button Text="Cancel" Clicked="OnCancelModalButtonClicked"/>
+    </StackLayout>
+    
+</ContentPage>

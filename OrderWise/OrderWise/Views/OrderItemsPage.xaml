@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OrderWise.Views.OrdersPage"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:OrderWise.ViewModels"  
+             xmlns:model="clr-namespace:OrderWise.Models">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="OnAddOrderButtonClicked"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout Margin="20,35,20,20">
+
+        <Label Text="{Binding Title}" FontSize="Title" FontAttributes="Bold"></Label>
+        <CollectionView x:Name="collectionView" SelectionMode="Single"
+                SelectionChanged="OnCollectionViewSelectionChanged">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding ProductName}"
+                               FontSize="Medium" />
+                    
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+    
+</ContentPage>

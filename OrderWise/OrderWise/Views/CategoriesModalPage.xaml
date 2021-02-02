@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OrderWise.Views.CategoriesModalPage"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:OrderWise.ViewModels"  
+             xmlns:model="clr-namespace:OrderWise.Models">
+
+    <StackLayout Margin="20,35,20,20">
+        <Entry x:Name="categoryDescriptionEntry"
+               Placeholder="Enter Description" />
+        
+        
+        <Button Text="Add Category"
+                Clicked="OnAddCategoryButtonClicked" />
+        <Button Text="Cancel"
+                Clicked="OnCancelModalButtonClicked" />
+    </StackLayout>
+    
+</ContentPage>
