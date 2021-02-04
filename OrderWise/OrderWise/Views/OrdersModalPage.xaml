@@ -7,8 +7,9 @@
              xmlns:model="clr-namespace:OrderWise.Models">
 
     <StackLayout Margin="20,35,20,20">
-        <Entry x:Name="customerIdEntry"
-               Placeholder="Enter Product Code" />
+        <Picker x:Name="customerPicker" Title="Select Customer" ItemDisplayBinding="{Binding CustomerName}"/>
+
+
         <DatePicker x:Name="orderDatePicker" />
         <Entry x:Name="customerReferenceEntry"
                Placeholder="Enter Customer Reference" />

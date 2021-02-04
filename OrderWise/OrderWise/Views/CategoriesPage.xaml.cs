@@ -41,7 +41,10 @@ namespace OrderWise.Views
 
         void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var current = (e.CurrentSelection.FirstOrDefault() as CustomerCategory)?.CustomerCateforyId;
+            Navigation.PushModalAsync(new CategoriesEditModalPage
+            {
+                BindingContext = e.CurrentSelection.FirstOrDefault() as CustomerCategory
+            });
         }
     }
 }

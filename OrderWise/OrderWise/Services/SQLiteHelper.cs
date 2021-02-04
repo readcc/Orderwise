@@ -17,7 +17,7 @@ namespace OrderWise.Services
             _database.CreateTableAsync<Order>().Wait();
             _database.CreateTableAsync<OrderItem>().Wait();
             _database.CreateTableAsync<Product>().Wait();
-            
+            string path = dbPath;
         }
 
         public Task<List<Customer>> GetCustomerAsync()
@@ -30,6 +30,17 @@ namespace OrderWise.Services
             return _database.InsertAsync(customer);
         }
 
+        public Task<int> UpdateCustomerAsync(Customer customer)
+        {
+            return _database.UpdateAsync(customer);
+        }
+
+        public Task<int> DeleteCustomerAsync(Customer customer)
+        {
+            return _database.DeleteAsync(customer);
+        }
+
+
         public Task<List<Product>> GetProductAsync()
         {
             return _database.Table<Product>().ToListAsync();
@@ -40,6 +51,16 @@ namespace OrderWise.Services
             return _database.InsertAsync(product);
         }
 
+        public Task<int> UpdateProductAsync(Product product)
+        {
+            return _database.UpdateAsync(product);
+        }
+
+        public Task<int> DeleteProductAsync(Product product)
+        {
+            return _database.DeleteAsync(product);
+        }
+
         public Task<List<CustomerCategory>> GetCategoriesAsync()
         {
             return _database.Table<CustomerCategory>().ToListAsync();
@@ -48,6 +69,16 @@ namespace OrderWise.Services
         public Task<int> SaveCategoryAsync(CustomerCategory category)
         {
             return _database.InsertAsync(category);
+        }
+
+        public Task<int> UpdateCategoryAsync(CustomerCategory category)
+        {
+            return _database.UpdateAsync(category);
+        }
+
+        public Task<int> DeleteCategoryAsync(CustomerCategory category)
+        {
+            return _database.DeleteAsync(category);
         }
 
         public Task<List<Order>> GetOrdersAsync()

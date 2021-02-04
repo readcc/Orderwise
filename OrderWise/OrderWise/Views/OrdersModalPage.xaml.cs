@@ -20,23 +20,23 @@ namespace OrderWise.Views
         public OrdersModalPage()
         {
             InitializeComponent();
+          
 
-            
         }
 
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
             base.OnAppearing();
-            
+            customerPicker.ItemsSource = await App.Database.GetCustomerAsync();
         }
 
         async void OnAddOrderButtonClicked(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(customerIdEntry.Text) && !string.IsNullOrWhiteSpace(customerReferenceEntry.Text))
+            if (customerPicker.SelectedIndex !=-1 && !string.IsNullOrWhiteSpace(customerReferenceEntry.Text))
             {
                 await App.Database.SaveOrdersAsync(new Order
                 {
-                    CustomerId = int.Parse(customerIdEntry.Text),
+                    CustomerId = customerPicker.SelectedIndex,
                     OrderDate = orderDatePicker.Date,
                     CustomerReference = customerReferenceEntry.Text
                 });

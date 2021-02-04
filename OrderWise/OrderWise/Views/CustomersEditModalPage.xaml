@@ -1,17 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="OrderWise.Views.CustomersModalPage"
+             x:Class="OrderWise.Views.CustomersEditModalPage"
              Title="{Binding Title}"
              xmlns:local="clr-namespace:OrderWise.ViewModels"  
              xmlns:model="clr-namespace:OrderWise.Models">
     <ContentPage.BindingContext>
         <local:CustomersViewModel/>
     </ContentPage.BindingContext>
-    
-    <StackLayout Margin="20,35,20,20">
+    <ScrollView>
+    <StackLayout Margin="20,35,20,20" VerticalOptions="FillAndExpand">
         <Label Text="{Binding Title}" FontSize="Title"/>
-        <Entry x:Name="customerCodeEntry" Text="{Binding CustomerCode}"
+        <Entry x:Name="customerIdEntry" IsVisible="False" Text="{Binding CustomerId}"
+               Placeholder="Enter Customer Code" />
+        <Entry x:Name="customerCodeEntry" IsReadOnly="True" Text="{Binding CustomerCode}"
                Placeholder="Enter Customer Code" />
         <Entry x:Name="customerNameEntry" Text="{Binding CustomerName}"
                Placeholder="Enter Customer Name" />
@@ -31,9 +33,10 @@
                Placeholder="Enter Postal Code" />
         <Picker x:Name="customerCategoryPicker" Title="Select Category" ItemDisplayBinding="{Binding Description}" SelectedItem="{Binding CustomerCategoryId, Mode=TwoWay}" />
 
-
-        <Button Text="Add Customer" Clicked="OnAddCustomerButtonClicked"/>
+        <Button Text="New Order" Clicked="OnNewOrderButtonClicked"/>
+        <Button Text="Update Customer" Clicked="OnUpdateCustomerButtonClicked"/>
+        <Button Text="Delete Customer" Clicked="OnDeleteCustomerButtonClicked"/>
         <Button Text="Cancel" Clicked="OnCancelModalButtonClicked"/>
     </StackLayout>
-    
+    </ScrollView>
 </ContentPage>

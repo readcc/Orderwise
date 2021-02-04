@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OrderWise.Views.CategoriesEditModalPage"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:OrderWise.ViewModels"  
+             xmlns:model="clr-namespace:OrderWise.Models">
+
+    <StackLayout Margin="20,35,20,20">
+        <Entry x:Name="categoryIdEntry" IsVisible="False" Text="{Binding CustomerCateforyId}"
+               Placeholder="Enter Description" />
+        <Entry x:Name="categoryDescriptionEntry" Text="{Binding Description}"
+               Placeholder="Enter Description" />
+        
+        
+        <Button Text="Update Category"
+                Clicked="OnUpdateCategoryButtonClicked" />
+        <Button Text="Delete Category"
+                Clicked="OnDeleteCategoryButtonClicked" />
+        <Button Text="Cancel"
+                Clicked="OnCancelModalButtonClicked" />
+    </StackLayout>
+    
+</ContentPage>

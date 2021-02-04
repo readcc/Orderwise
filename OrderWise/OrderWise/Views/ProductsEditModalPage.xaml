@@ -1,19 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="OrderWise.Views.ProductsModalPage"
+             x:Class="OrderWise.Views.ProductsEditModalPage"
              Title="{Binding Title}"
              xmlns:local="clr-namespace:OrderWise.ViewModels"  
              xmlns:model="clr-namespace:OrderWise.Models">
 
     <StackLayout Margin="20,35,20,20">
-        <Entry x:Name="productCodeEntry" Text="{Binding ProductCode}"
+        <Entry x:Name="productIdEntry" IsVisible="False" Text="{Binding ProductId}"
                Placeholder="Enter Product Code" />
-        <Entry x:Name="productNameEntry" Text="{Binding ProductName}"
+        <Entry x:Name="productCodeEntry" IsReadOnly="True" Text="{Binding ProductCode}"
+               Placeholder="Enter Product Code" />
+        <Entry x:Name="productNameEntry"  Text="{Binding ProductName}"
                Placeholder="Enter Product Name" />
         
-        <Button Text="Add Product"
-                Clicked="OnAddProductButtonClicked" />
+        <Button Text="Update Product"
+                Clicked="OnUpdateProductButtonClicked" />
+        <Button Text="Delete Product"
+                Clicked="OnDeleteProductButtonClicked" />
         <Button Text="Cancel"
                 Clicked="OnCancelModalButtonClicked" />
     </StackLayout>

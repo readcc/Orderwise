@@ -13,11 +13,11 @@ using Xamarin.Forms.Xaml;
 
 namespace OrderWise.Views
 {
-    public partial class CustomersModalPage : ContentPage
+    public partial class CustomersEditModalPage : ContentPage
     {
         
 
-        public CustomersModalPage()
+        public CustomersEditModalPage()
         {
             InitializeComponent();
 
@@ -31,7 +31,7 @@ namespace OrderWise.Views
             customerCategoryPicker.ItemsSource = await App.Database.GetCategoriesAsync();
         }
 
-        async public void OnAddCustomerButtonClicked(object sender, EventArgs e)
+        async public void OnUpdateCustomerButtonClicked(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(customerNameEntry.Text) 
                 && !string.IsNullOrWhiteSpace(telephoneEntry.Text) 
@@ -42,8 +42,9 @@ namespace OrderWise.Views
                 && !string.IsNullOrWhiteSpace(address4Entry.Text)
                 && !string.IsNullOrWhiteSpace(postalCodeEntry.Text))
             {
-                await App.Database.SaveCustomerAsync(new Customer
+                await App.Database.UpdateCustomerAsync(new Customer
                 {
+                    CustomerId = int.Parse(customerIdEntry.Text),
                     CustomerCode = customerCodeEntry.Text,
                     CustomerName = customerNameEntry.Text,
                     Telephone = telephoneEntry.Text,
@@ -71,6 +72,7 @@ namespace OrderWise.Views
 
                 
             }
+            await Navigation.PopModalAsync();
         }
 
         void OnCancelModalButtonClicked(object sender, EventArgs e)
@@ -78,5 +80,21 @@ namespace OrderWise.Views
 
             Navigation.PopModalAsync();
         }
-     }
+
+        void OnDeleteCustomerButtonClicked(object sender, EventArgs e)
+        {
+             App.Database.DeleteCustomerAsync(new Customer
+            {
+                CustomerId = int.Parse(customerIdEntry.Text)
+            });
+                Navigation.PopModalAsync();
+        }
+
+
+        void OnNewOrderButtonClicked(object sender, EventArgs e)
+        {
+
+            Navigation.PushModalAsync(new OrdersModalPage());
+        }
+    }
 }

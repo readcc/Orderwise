@@ -12,24 +12,24 @@ namespace OrderWise.ViewModels
     public class CustomersViewModel : BaseViewModel
     {
  
-
+      
+    
 
         public CustomersViewModel()
         {
             Title = "Customers";
             
-         
-        }
-
-       
-        public void OnAppearing()
-        {
-
             
         }
 
-        
 
-        
+
+        public  void OnAppearing()
+        {
+            
+            
+        }
+
+
     }
 }

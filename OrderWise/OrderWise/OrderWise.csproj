@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Views\CustomersEditModalPage.xaml~RFccdd1d3.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.1931" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
@@ -18,11 +22,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\CategoriesEditModalPage.xaml.cs">
+      <DependentUpon>CategoriesEditModalPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\CategoriesModalPage.xaml.cs">
       <DependentUpon>CategoriesModalPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\CustomersEditModalPage.xaml.cs">
+      <DependentUpon>CustomersEditModalPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\OrdersModalPage.xaml.cs">
       <DependentUpon>OrdersModalPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ProductsEditModalPage.xaml.cs">
+      <DependentUpon>ProductsEditModalPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\ProductsModalPage.xaml.cs">
       <DependentUpon>ProductsModalPage.xaml</DependentUpon>

@@ -15,19 +15,19 @@ namespace OrderWise.Views
 {
     public partial class CustomersPage : ContentPage
     {
-        CustomersViewModel _viewModel;
+        
 
         public CustomersPage()
         {
             InitializeComponent();
 
-            BindingContext = _viewModel = new CustomersViewModel();
+            
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            collectionView.ItemsSource = await App.Database.GetCustomerAsync();
+            customerCollectionView.ItemsSource = await App.Database.GetCustomerAsync();
 
         }
 
@@ -42,9 +42,11 @@ namespace OrderWise.Views
 
         void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var current = (e.CurrentSelection.FirstOrDefault() as Customer)?.CustomerId;
-            var modalPage = new CustomersModalPage();
-            Navigation.PushModalAsync(modalPage);
+            
+            
+            Navigation.PushModalAsync(new CustomersEditModalPage { 
+                BindingContext = e.CurrentSelection.FirstOrDefault() as Customer
+            });
         }
 
     }   

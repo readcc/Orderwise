@@ -13,11 +13,11 @@ using Xamarin.Forms.Xaml;
 
 namespace OrderWise.Views
 {
-    public partial class ProductsModalPage : ContentPage
+    public partial class ProductsEditModalPage : ContentPage
     {
        
 
-        public ProductsModalPage()
+        public ProductsEditModalPage()
         {
             InitializeComponent();
 
@@ -30,20 +30,36 @@ namespace OrderWise.Views
             
         }
 
-        async void OnAddProductButtonClicked(object sender, EventArgs e)
+        async void OnUpdateProductButtonClicked(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(productCodeEntry.Text) && !string.IsNullOrWhiteSpace(productNameEntry.Text))
             {
-                await App.Database.SaveProductAsync(new Product
+                await App.Database.UpdateProductAsync(new Product
                 {
+                    ProductId = int.Parse(productIdEntry.Text),
                     ProductCode = productCodeEntry.Text,
                     ProductName = productNameEntry.Text                    
                 });
 
-                productCodeEntry.Text = productNameEntry.Text = string.Empty;
-
                 await Navigation.PopModalAsync();
+
+
             }
+        }
+
+        async void OnDeleteProductButtonClicked(object sender, EventArgs e)
+        {
+
+            await App.Database.DeleteProductAsync(new Product
+            {
+                ProductId = int.Parse(productIdEntry.Text)
+
+            });
+
+
+
+            await Navigation.PopModalAsync();
+
         }
 
         void OnCancelModalButtonClicked(object sender, EventArgs e)

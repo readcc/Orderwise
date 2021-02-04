@@ -41,10 +41,10 @@ namespace OrderWise.Views
 
         void OnCollectionViewSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var current = (e.CurrentSelection.FirstOrDefault() as Product)?.ProductId;
-            var modalPage = new ProductsModalPage();
-
-            Navigation.PushModalAsync(modalPage);
+            Navigation.PushModalAsync(new ProductsEditModalPage
+            {
+                BindingContext = e.CurrentSelection.FirstOrDefault() as Product
+            });
         }
     }
 }
